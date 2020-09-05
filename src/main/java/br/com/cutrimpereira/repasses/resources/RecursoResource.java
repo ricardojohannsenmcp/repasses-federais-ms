@@ -88,7 +88,7 @@ public class RecursoResource {
 
 		try {
 			HttpHeaders headers = new HttpHeaders();
-			headers.add("chave-api-dados", "dfef2dff5387bf6ce65fd904f55f45b3");
+			headers.add("chave-api-dados", "");
 			headers.add("Accept", "*/*");
 
 
@@ -124,47 +124,12 @@ public class RecursoResource {
 	public void importar() throws IOException {
 
 
-		//Administração Pública Municipal
-		//Fundo Público
-		//	headers.add("Accept", "*/*");
-
-		/*	
-			HttpHeaders headers = new HttpHeaders();
-			headers.add("chave-api-dados", "dfef2dff5387bf6ce65fd904f55f45b3");
-
-
-
-
-			RecursoWraper wraper = null;
-
-		HttpEntity request = new HttpEntity(headers);
-		ResponseEntity<RecursoWraper> response = restTemplate.exchange("http://www.portaltransparencia.gov.br/api-de-dados/despesas/recursos-recebidos?mesAnoInicio=01%2F2020&mesAnoFim=09%2F2020&tipoFavorecido=Fundo%20P%C3%BAblico&uf=MA&pagina=1",HttpMethod.GET,request,RecursoWraper.class);
-
-
-		if (response.getStatusCode() == HttpStatus.OK) {
-
-			 wraper = response.getBody();
-
-		} else {
-		    System.out.println("Request Failed");
-		    System.out.println(response.getStatusCode());
-		}
-
-
-
-             List<Recurso> recursos = wraper.getRecursos();
-
-
-            save(recursos);
-		 */
-
-
 
 		URL url = new URL("http://www.portaltransparencia.gov.br/api-de-dados/despesas/recursos-recebidos?mesAnoInicio=01%2F2020&mesAnoFim=09%2F2020&tipoFavorecido=Fundo%20P%C3%BAblico&uf=MA&pagina=1");
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestMethod("GET");
 		con.setRequestProperty("Accept", "*/*");
-		con.setRequestProperty("chave-api-dados", "dfef2dff5387bf6ce65fd904f55f45b3");
+		con.setRequestProperty("chave-api-dados", "");
 
 		BufferedReader br = new BufferedReader(
 				new InputStreamReader(con.getInputStream()));
